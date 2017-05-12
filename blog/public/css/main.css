@@ -1,0 +1,143 @@
+body {
+    background: #eee;
+    font-family: "Microsoft YaHei UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+.head_bj {
+    background: #fff;
+    width: 1920px;
+    height: 300px;
+}
+
+.container-fluid{
+    padding:0;
+}
+.container {
+    width: 1150px;
+    height:1400px;
+    position: relative;
+    margin: 0 auto;
+}
+.container h2{
+    margin: 0;
+    text-align: center;
+    padding-top: 20px;
+}
+.nav {
+    text-align: center;
+    margin-top:-40px;
+}
+
+.nav ul {
+    margin: 0;
+    padding: 0;
+    line-height: 36px;
+    list-style: none;
+    text-align: center;
+}
+
+.nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+    padding: 0 5px;
+}
+
+.nav ul li:hover {
+    border-bottom: 2px solid #ff9800;
+}
+
+.left{
+    width:800px;
+    position: absolute;
+    top:0px;
+    left:0;
+}
+.right{
+    width:300px;
+    position: absolute;
+    top:0px;
+    right:0;
+}
+article{
+    height:300px;
+    margin-top:30px;
+    background: #fff;
+}
+.info{
+    min-height: 200px;
+    padding:10px 20px;
+    margin-top:30px;
+    background: #fff;
+}
+.info h3{
+    display: inline-block;
+    font-size: 21px;
+    margin:0;
+    padding:0;
+    padding-right: 15px;
+    border-bottom: 2px solid #ff9800;
+}
+.colwarning{
+    color:#f00;
+}
+.row{
+    margin-right:0;
+    margin-left:0;
+}
+.borderBottom{
+    width: 240px;
+    border-bottom: 1px solid #cccccc;
+    margin-bottom:15px;
+}
+.control-label{
+    width: 90px;
+    font-size: 12px;
+    display: block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-right:15px;
+}
+.sketch{
+    width: 500px;
+    font-size: 12px;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+.sketch dl{
+    display: inline-block;
+    margin-right:20px;
+    margin-bottom:0px;
+}
+.sketch dt{
+    display: inline-block;
+    font-weight: bold;
+    color: #3c3c3c;
+}
+.sketch dd{
+    margin:0;
+    display: inline-block;
+    color: #0084ba;
+}
+.content{
+    height: 200px;
+    padding:10px 50px;
+    position: relative;
+}
+.content p{
+    height:140px;
+    text-overflow:ellipsis;
+    overflow:hidden;
+}
+.content button{
+    position: absolute;
+    bottom:0;
+}
+footer{
+    width: 1920px;
+    height:180px;
+    background: #fff;
+    border-top: 1px solid #aaaaaa;
+
+}
