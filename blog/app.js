@@ -1,11 +1,12 @@
 /**
  * Created by sam on 2017/5/11.
  */
+//应用程序的主入口文件
 
 //加载express模块
 var express = require('express')
 
-//加载模板模块
+//加载模板处理模块，模板引擎
 var swig = require('swig')
 
 //创建app应用  等同于nodejs的http.createServer()
@@ -36,7 +37,7 @@ app.set('views', './views')
 app.set('view engine', 'html')
 
 //开发过程中，需要不断的修改模板，需要取消模板的缓存
-swig.setDefaults({cache:false})
+swig.setDefaults({ cache:false })
 
 //bodyParser配置
 app.use( bodyParser.urlencoded({
@@ -53,7 +54,7 @@ app.use(function (req, res, next) {
         try{
             req.userInfo = JSON.parse(req.cookies.get('userInfo'))
 
-            //获取当前登录用户的身份类型
+            //获取当前登录用户的身份类型，是否是管理员
             User.findById(req.userInfo._id).then(function (userInfo) {
                 req.userInfo.isAdmin = Boolean(userInfo.isAdmin)
                 next()
@@ -68,21 +69,24 @@ app.use(function (req, res, next) {
 })
 
 /*
-//首页
-app.get('/', function (req, res, next) {
-    //res.send("<h1>welcome my blog</h1>")  //直接显示到客户端页面
+ //首页
+ app.get('/', function (req, res, next) {
+ //res.send("<h1>welcome my blog</h1>")  //直接显示到客户端页面
 
-    /!*
-    * 设置views目录下的制定文件，解析并返回给客户端
-    * 第一个参数：表示模板文件，相对于views目录  views/index.html
-    * 第二个参数：传递给模板使用的数据
-    * *!/
-    res.render('index')
-})*/
+ /!*
+ * 设置views目录下的制定文件，解析并返回给客户端
+ * 第一个参数：表示模板文件，相对于views目录  views/index.html
+ * 第二个参数：传递给模板使用的数据
+ * *!/
+ res.render('index')
+ })*/
 
 /*
-* 根据不同的功能，划分模块
-* */
+ * 根据不同的功能，划分模块
+ * /admin， 后端
+ * /api，通过ajax数据请求
+ * /，前端页面展示
+ * */
 app.use('/admin', require('./routers/admin'))
 app.use('/api', require('./routers/api'))
 app.use('/', require('./routers/main'))
@@ -94,7 +98,8 @@ mongoose.connect('mongodb://localhost:27018/blog', function (err) {
         console.log('数据库连接失败')
     }else{
         console.log('数据库连接成功')
-        app.listen(8888, 'localhost')  //只有数据库连接成功后，才进行端口监听，页面请求
+          //只有数据库连接成功后，才进行端口监听，页面请求
+        app.listen(8888, 'localhost')
     }
 })
 
