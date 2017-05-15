@@ -1,16 +1,15 @@
-{% extends 'layout.html'%}
+{% extends 'layout.html' %}
 
-{% block main %}
+{% block main%}
 <ol class="breadcrumb">
-    <li><a href="/">管理首页</a></li>
+    <li><a href="#">管理首页</a></li>
     <li><span>分类列表</span></li>
 </ol>
+
 <h3>分类列表</h3>
-
-{% include 'page.html' %}
-
+<!--分页-->
+{% include 'page.html'%}
 <table class="table table-hover table-striped">
-
     <tr>
         <th>ID</th>
         <th>分类名称</th>
@@ -19,16 +18,15 @@
 
     {% for category in categories %}
     <tr>
-        <td>{{ category._id.toString() }}</td>
-        <td>{{ category.name }}</td>
+        <td>{{category._id.toString()}}</td>
+        <td>{{category.name}}</td>
         <td>
-            <a href="/admin/category/edit?id={{ category._id.toString() }}">修改</a> |
-            <a href="/admin/category/delete?id={{ category._id.toString() }}">删除</a>
+            <a href="/admin/category/edit?id={{category._id.toString()}}">编辑</a> |
+            <a href="/admin/category/delete?id={{category._id.toString()}}">删除</a>
         </td>
     </tr>
-    {% endfor%}
+    {% endfor %}
 </table>
-
-{% include 'page.html' %}
-
-{% endblock %}
+<!--分页-->
+{% include 'page.html'%}
+{% endblock%}

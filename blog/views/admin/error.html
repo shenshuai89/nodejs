@@ -1,8 +1,8 @@
-{% extends 'layout.html'%}
+{% extends 'layout.html' %}
 
-{% block main %}
+{% block main%}
 <ol class="breadcrumb">
-    <li><a href="/">管理首页</a></li>
+    <li><a href="#">管理首页</a></li>
     <li><span>错误提示</span></li>
 </ol>
 
@@ -11,16 +11,16 @@
         <h3 class="panel-title">错误提示</h3>
     </div>
     <div class="panel-body">
-       {{message}}
+        {{message}}
     </div>
     <div class="panel-footer">
         {% if url %}
-        <a href="{{url}}">点击这里跳转</a>
+        <a href="{{url}}">点击跳转</a>
         {% else %}
-        <a href="javascript:window.history.back();">返回上一步</a>
-        {% endif %}
+        <a href="javascript:window.history.back()">返回上一步</a>
+        {% endif%}
 
     </div>
 </div>
 
-{% endblock %}
+{% endblock%}
