@@ -2,8 +2,6 @@
  * Created by sam on 2017/5/11.
  */
 
-//数据库结构文件目录
-
 var mongoose = require('mongoose')
 
 //用户的表结构
