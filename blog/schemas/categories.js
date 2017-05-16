@@ -5,9 +5,8 @@
 var mongoose = require('mongoose')
 
 //分类的表结构
-var category = new mongoose.Schema({
+module.exports = new mongoose.Schema({
     //分类名称
     name: String
 })
 
-module.exports = category

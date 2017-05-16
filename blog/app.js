@@ -97,4 +97,3 @@ mongoose.connect('mongodb://localhost:27018/blog', function (err) {
         app.listen(8888, 'localhost')  //只有数据库连接成功后，才进行端口监听，页面请求
     }
 })
-
