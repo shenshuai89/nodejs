@@ -15,12 +15,15 @@
     <div class="nav">
         <ul>
             <li>首页</li>
-            <li>Html5</li>
+            <!--<li>Html5</li>
             <li>css</li>
             <li>Javascript</li>
             <li>php</li>
             <li>java</li>
-            <li>express</li>
+            <li>express</li>-->
+            {% for category in categories %}
+            <li><a href="">{{category.name}}</a></li>
+            {% endfor %}
         </ul>
     </div>
     <section class="left">
