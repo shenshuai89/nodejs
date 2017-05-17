@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="./public/css/normalize.css">
+    <link rel="stylesheet" href="./public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./public/css/main.css">
+</head>
+<body>
+<div class="container-fluid head_bj">
+    <img src="/public/images/head_bj.jpg" alt="head-background">
+</div>
+<div class="container">
+    <div class="nav">
+        <ul>
+            {% if category =='' %}
+            <li class="select"><a href="/">首页</a></li>
+            {% else %}
+            <li><a href="/">首页</a></li>
+            {% endif %}
+            <!--<li>Html5</li>
+            <li>css</li>
+            <li>Javascript</li>
+            <li>php</li>
+            <li>java</li>
+            <li>express</li>-->
+            {% for cate in categories %}
+                {% if category ==cate.id %}
+                    <li class="select"><a href="/?category={{ cate.id }}">{{cate.name}}</a></li>
+                {% else %}
+                    <li><a href="/?category={{ cate.id }}">{{cate.name}}</a></li>
+                {% endif%}
+            {% endfor %}
+        </ul>
+    </div>
+    <section class="left">
+        {% block content %}
+
+        {% endblock %}
+    </section>
+    <section class="right">
+
+        {% if userInfo._id %}
+        <div class="info userInfo">
+            <div class="borderBottom">
+                <h3>用户信息</h3>
+            </div>
+            <p><span class="username">{{ userInfo.username }}</span></p>
+
+            {% if userInfo.isAdmin %}
+                <p><span class="info colwarning">你好，管理员 <a href="/admin" class="enterAdmin">进入管理中心</a></span></p>
+            {% else %}
+                <p><span class="info colwarning">你好，欢迎光临我的博客</span></p>
+            {% endif %}
+
+
+            <p><span><a href="javascript:" class="logout">退出</a></span></p>
+        </div>
+
+        {% else %}
+
+        <div class="info login row">
+            <div class="borderBottom">
+                <h3>登录</h3>
+            </div>
+            <div class="form-group">
+                <label for="userNameLog" class="control-label">username</label>
+                <div>
+                    <input type="text" class="form-control" id="userNameLog" placeholder="Name">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="passwordLog" class="control-label">Password</label>
+                <div>
+                    <input type="password" class="form-control" id="passwordLog" placeholder="Password">
+                </div>
+            </div>
+            <div class="col-sm-10 loginToggle">
+                <p>还没账号 <a href="javascript:void(0)">点击注册</a></p>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-10">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox"> Remember me
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-10">
+                    <button type="submit" class="btn btn-default btn-success">登 录</button>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <p class="colwarning"></p>
+            </div>
+        </div>
+        <div class="info register row"  style="display:none;">
+            <div class="borderBottom">
+                <h3>新注册</h3>
+            </div>
+            <div>
+                <div class="form-group">
+                    <label for="userNameReg" class="control-label">Name</label>
+                    <div>
+                        <input type="text" name="username" class="form-control" id="userNameReg" placeholder="Name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputPasswordReg" class="control-label">Password</label>
+                    <div>
+                        <input type="password" class="form-control" id="inputPasswordReg" placeholder="Password">
+                    </div>
+                    <label for="AgainPasswordReg" class="control-label"></label>
+                    <div>
+                        <input type="password" class="form-control" id="AgainPasswordReg" placeholder="AgainPassword">
+                    </div>
+                </div>
+                <div class="col-sm-10 registerToggle">
+                    <p>已有账号 <a href="javascript:void(0)">点击登录</a></p>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <button type="submit" class="btn btn-default btn-success">注册新账户</button>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <p class="colwarning"></p>
+                </div>
+            </div>
+        </div>
+
+        {% endif %}
+
+        <div class="info zone">
+            <div class="borderBottom">
+                <h3>社区</h3>
+            </div>
+            <p>最近更新</p>
+            <p>新闻列表</p>
+            <p>最近更新</p>
+            <p>新闻列表</p>
+        </div>
+    </section>
+</div>
+<footer class="container-fluid">
+
+</footer>
+<script src="./public/js/jquery.min.js"></script>
+<!--<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>-->
+<script src="./public/js/bootstrap.min.js"></script>
+<script src="./public/js/blog.js"></script>
+</body>
+</html>

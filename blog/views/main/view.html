@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<article>
+    <h2>{{ content.title }}</h2>
+    <div class="sketch">
+        <dl>
+            <dt>作者：</dt>
+            <dd>{{userInfo.username}}</dd>
+        </dl>
+        <dl>
+            <dt>时间：</dt>
+            <dd>{{ content.addTime|date('Y年m月d日 H:i:s', -8*60) }}</dd>
+        </dl>
+        <dl>
+            <dt>阅读：</dt>
+            <dd>{{content.views}}</dd>
+        </dl>
+        <dl>
+            <dt>评论：</dt>
+            <dd>10</dd>
+        </dl>
+    </div>
+    <div class="content">
+        <p> {{ content.content }} </p>
+    </div>
+</article>
+
+{% endblock%}

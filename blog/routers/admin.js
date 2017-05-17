@@ -278,7 +278,7 @@ router.get('/content', function (req, res) {
 
         var skip = (page - 1) * limit
 
-        Content.find().sort({_id: -1}).limit(limit).skip(skip).populate('category').then(function (contents) {
+        Content.find().sort({_id: -1}).limit(limit).skip(skip).populate(['category','user']).sort({addTime:-1}).then(function (contents) {
             // console.log(users)
             //console.log(contents)
             res.render('admin/content_index', {
@@ -329,6 +329,7 @@ router.post('/content/add', function (req, res) {
     new Content({
         category: req.body.category,
         title: req.body.title,
+        user:req.userInfo._id.toString(),
         description: req.body.description,
         content: req.body.content
     }).save().then(function (rs) {
@@ -394,13 +395,15 @@ router.post('/content/edit', function (req, res) {
     }, {
         category: req.body.category,
         title:req.body.title,
+        user:req.userInfo._id.toString(),
         description:req.body.description,
         content: req.body.content
     }).then(function () {
         res.render('admin/success',{
             userInfo:req.userInfo,
             message :'内容保存成功',
-            url:'/admin/content/edit?id=' + id
+            //url:'/admin/content/edit?id=' + id
+            url:'/admin/content'
         })
     })
 })
@@ -414,7 +417,7 @@ router.get('/content/delete', function (req, res) {
         res.render('admin/success', {
             userInfo: req.userInfo,
             message: '删除成功',
-            url:'/admin/category'
+            url:'/admin/content'
         })
     })
 })
