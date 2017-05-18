@@ -6,6 +6,8 @@ var express = require('express')
 var router = express.Router()
 var User = require('../models/User')
 
+var Content = require('../models/Content')
+
 //统一返回格式
 var responseData;
 router.use(function (req, res, next) {
@@ -119,6 +121,33 @@ router.get('/user/logout', function (req, res) {
     //退出，就把cookies信息给清除掉了
     req.cookies.set('userInfo', null)
     res.json(responseData)
+})
+
+
+/*
+* 评论提交
+* */
+router.post('/comment/post',function (req, res) {
+    //内容的ID
+    var contentId = req.body.contentid || ''
+
+    var postdata = {
+        username: req.userInfo.username,
+        postTime: new Date(),
+        content: req.body.content
+    }
+
+    //查询当前这篇文章的信息
+    Content.findOne({
+        _id: contentId
+    }).then(function (content) {
+        content.comments.push(postdata)
+        return content.save()
+    }).then(function (newContent) {
+        responseData.message = '评论成功'
+        responseData.data = newContent
+        res.json(responseData)
+    })
 })
 
 

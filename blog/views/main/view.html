@@ -26,5 +26,37 @@
         <p> {{ content.content }} </p>
     </div>
 </article>
+<article class="comment row">
+    <div class="clearfix">
+        <strong class="fl">评论</strong><span class="fr">一共有 <em>0</em> 条评论</span>
+    </div>
+    <p class="userName"><span>用户名：</span>admin</p>
+    {% if userInfo._id %}
+    <p>
+        <textarea id="messageContent" class="form-control"></textarea>
+        <input type="hidden" id="contentId" value="{{content.id}}">
+        <button id="messageBtn" class="btn btn-danger btn-block submit">提交</button>
+    </p>
+    {% else %}
+    <p class="noLogin">你还没有登录，请先 <a href="">登录</a></p>
+    {% endif %}
+    <div class="messageList">
+        <div class="messageBox"><p>还没有留言内容</p></div>
+    </div>
+    <div class="messageList">
+        <div class="messageBox">
+            <p class="commentInfo clearfix">
+                <span class="fl">admin</span><span class="fr time">2017-10-25</span></p>
+            <p class="commentContent">评论内容</p>
+        </div>
+        <div class="messageBox">
+            <p class="commentInfo clearfix">
+                <span class="fl">admin</span><span class="fr time">2017-10-25</span></p>
+            <p class="commentContent">评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容</p>
+        </div>
+    </div>
+</article>
 
+<script src="/public/js/jquery.min.js"></script>
+<script src="/public/js/comment.js"></script>
 {% endblock%}
