@@ -3,7 +3,14 @@ body {
     font-family: "Microsoft YaHei UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
     overflow-x: hidden;
 }
-
+a{
+    text-decoration: none;
+    color:#fff;
+}
+a:hover{
+     text-decoration: none;
+     color:#fff;
+}
 .head_bj {
     background: #fff;
     width: 1920px;
@@ -15,7 +22,7 @@ body {
 }
 .container {
     width: 1150px;
-    height:1400px;
+    min-height:560px;
     position: relative;
     margin: 0 auto;
 }
@@ -42,14 +49,18 @@ body {
     margin-right: 20px;
     padding: 0 5px;
 }
+.nav ul li a{
+    color:#0084ba;
+}
 
 .nav ul li:hover {
     border-bottom: 2px solid #ff9800;
 }
-
+.nav ul .select{
+    border-bottom: 2px solid #ff9800;
+}
 .left{
     width:800px;
-    position: absolute;
     top:0px;
     left:0;
 }
@@ -60,7 +71,7 @@ body {
     right:0;
 }
 article{
-    height:300px;
+    min-height:300px;
     margin-top:30px;
     background: #fff;
 }
@@ -121,12 +132,12 @@ article{
     color: #0084ba;
 }
 .content{
-    height: 200px;
+    min-height: 200px;
     padding:10px 50px;
     position: relative;
 }
 .content p{
-    height:140px;
+    min-height:140px;
     text-overflow:ellipsis;
     overflow:hidden;
 }
@@ -134,10 +145,92 @@ article{
     position: absolute;
     bottom:0;
 }
+.readAll{
+    color: #fff;
+}
+.readAll:hover{
+    color: #fff;
+}
+.page{
+    width: 100%;
+    height:70px;
+    background: #fff;
+    margin-top:30px;
+    font-size: 18px;
+    line-height: 50px;
+    padding:10px 30px;
+    text-align: center;
+}
+.dib{
+    display: inline-block;
+}
+.dib a, .enterAdmin{
+    color: #000;
+}
+.enterAdmin:hover{
+    color: #555;
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+.cet{
+    text-align: center;
+}
+
+
+/*内容详情*/
+.comment{
+    padding:30px;
+}
+#messageBtn{
+    margin:0 auto;
+    margin-top:10px;
+}
+#messageContent{
+    min-height: 120px;
+    margin:0 auto;
+    margin-top:10px;
+    resize: none;
+}
+.messageBox{
+    min-height: 60px;
+    border-top:1px solid #ccc;
+    padding:10px;
+}
+.noLogin{
+    margin:0;
+    padding: 10px 20px;
+    border: 2px solid #ea0700;
+}
+.noLogin a{
+    padding-top:4px;
+    color:#1b6d85;
+}
+.commentInfo{
+    font-size: 16px;
+}
+.commentInfo .time{
+    font-size: 14px;
+}
+.commentContent{
+    color: #666;
+}
+.userName{
+    padding-top:4px;
+    border-top: 1px solid #eee;
+}
+
+
+
+
+
 footer{
     width: 1920px;
     height:180px;
     background: #fff;
     border-top: 1px solid #aaaaaa;
-
+    margin-top:50px;
 }
