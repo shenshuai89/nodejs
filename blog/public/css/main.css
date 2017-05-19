@@ -73,6 +73,9 @@ a:hover{
 article{
     min-height:300px;
     margin-top:30px;
+    /*
+    padding: 10px 30px;
+    */
     background: #fff;
 }
 .info{
@@ -95,6 +98,9 @@ article{
 .row{
     margin-right:0;
     margin-left:0;
+}
+.userInfo a{
+    color: #000;
 }
 .borderBottom{
     width: 240px;
@@ -131,6 +137,13 @@ article{
     display: inline-block;
     color: #0084ba;
 }
+.commentPage li{
+    display: inline-block;
+    margin-right: 240px;
+}
+.commentPage li:last-of-type{
+    margin-right: 0px;
+}
 .content{
     min-height: 200px;
     padding:10px 50px;
@@ -142,8 +155,14 @@ article{
     overflow:hidden;
 }
 .content button{
-    position: absolute;
     bottom:0;
+}
+.commentPage ul{
+    margin:0;
+    padding:0 10px;
+}
+.commentPage li a{
+    color: #666;
 }
 .readAll{
     color: #fff;

@@ -2,10 +2,9 @@
  * Created by sam on 2017/5/18.
  */
 
-var perpage = 8
-var page = 1
+var perpage = 2
+var page = 3
 var pages = 0
-var comments =[]
 
 // 提交评论
 $('#messageBtn').on('click',function () {
@@ -19,8 +18,8 @@ $('#messageBtn').on('click',function () {
         success:function (responseData) {
             // console.log(responseData)
             $('#messageContent').val('')
-            comments = responseData.data.comments.reverse()
-            renderComment()
+
+            renderComment(responseData.data.comments.reverse())
         }
     })
 })
@@ -32,28 +31,26 @@ $.ajax({
         contentid : $('#contentId').val(),
     },
     success:function (responseData) {
-        comments = responseData.data.reverse()
-        renderComment()
+
+        renderComment(responseData.data.reverse())
     }
 })
 
 $('.commentPage').delegate('a', 'click', function () {
     if ($(this).parent().hasClass('prev')){
-        page--
+        alert('shang')
     }else{
-        page++
+        alert('xia')
     }
-    renderComment()
 })
 
-function renderComment() {
+function renderComment(comments) {
 
     $('#commentNum').html(comments.length)
-    pages = Math.max(Math.ceil(comments.length / perpage), 1)
+    var pages = Math.ceil(comments.length / perpage)
+    var start =(page-1)*perpage
 
-    var start =Math.max(0,(page-1)*perpage)
-    var end = Math.min(start + perpage,comments.length)
-
+    var end = start + perpage
     var $lis = $('.commentPage li')
     $lis.eq(1).html( page +'/' + pages )
 
@@ -71,21 +68,15 @@ function renderComment() {
         $lis.eq(2).html('<a href="javascript:;">下一页</a>')
     }
 
-    if (comments.length ==0){
-        $('.messageList').html('<div class="messageBox"><p>还没有留言内容</p></div>')
-    }else {
-        var html = ''
-        for(var i=start; i < end; i++){
-            html += '<div class="messageBox">'+
-                '<p class="commentInfo clearfix">'+
-                '<span class="fl">'+ comments[i].username +'</span><span class="fr time">'+ formatDate(comments[i].postTime) +'</span></p>'+
-                '<p class="commentContent">'+ comments[i].content +'</p>'+
-                '</div>'
-        }
-        $('.messageList').html(html)
+    var html = ''
+    for(var i=start; i < end; i++){
+        html += '<div class="messageBox">'+
+            '<p class="commentInfo clearfix">'+
+            '<span class="fl">'+ comments[i].username +'</span><span class="fr time">'+ formatDate(comments[i].postTime) +'</span></p>'+
+            '<p class="commentContent">'+ comments[i].content +'</p>'+
+            '</div>'
     }
-
-
+    $('.messageList').html(html)
 }
 
 function formatDate(d) {

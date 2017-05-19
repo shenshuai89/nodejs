@@ -19,7 +19,7 @@
         </dl>
         <dl>
             <dt>评论：</dt>
-            <dd>10</dd>
+            <dd>{{content.comments.length}}</dd>
         </dl>
     </div>
     <div class="content">
@@ -28,7 +28,7 @@
 </article>
 <article class="comment row">
     <div class="clearfix">
-        <strong class="fl">评论</strong><span class="fr">一共有 <em>0</em> 条评论</span>
+        <strong class="fl">评论</strong><span class="fr">一共有 <em id="commentNum">0</em> 条评论</span>
     </div>
     <p class="userName"><span>用户名：</span>admin</p>
     {% if userInfo._id %}
@@ -40,20 +40,25 @@
     {% else %}
     <p class="noLogin">你还没有登录，请先 <a href="">登录</a></p>
     {% endif %}
-    <div class="messageList">
+    <!--<div class="messageList">
         <div class="messageBox"><p>还没有留言内容</p></div>
-    </div>
+    </div>-->
     <div class="messageList">
-        <div class="messageBox">
+
+        <!--<div class="messageBox">
             <p class="commentInfo clearfix">
                 <span class="fl">admin</span><span class="fr time">2017-10-25</span></p>
             <p class="commentContent">评论内容</p>
-        </div>
-        <div class="messageBox">
-            <p class="commentInfo clearfix">
-                <span class="fl">admin</span><span class="fr time">2017-10-25</span></p>
-            <p class="commentContent">评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容</p>
-        </div>
+        </div>-->
+
+    </div>
+
+    <div class="commentPage">
+        <ul>
+            <li class="prev"><a href="">上一页</a></li>
+            <li></li>
+            <li class="next"><a href="">下一页</a></li>
+        </ul>
     </div>
 </article>
 
