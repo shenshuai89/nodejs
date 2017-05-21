@@ -115,14 +115,19 @@ router.post('/user/login',function (req, res) {
     })
 })
 
-/*
-* 退出
-* */
-router.get('/user/logout', function (req, res) {
-    //退出，就把cookies信息给清除掉了
-    req.cookies.set('userInfo', null)
-    res.json(responseData)
+//获取指定文章的所有评论
+router.get('/comment',function (req, res) {
+    var contentId = req.query.contentid || ''
+    Content.findOne({
+        _id:contentId
+    }).then(function (content) {
+        responseData.data = content.comments
+        res.json(responseData)
+    })
 })
+
+
+
 
 //评论的提交
 router.post('/comment/post', function (req, res) {
@@ -147,5 +152,16 @@ router.post('/comment/post', function (req, res) {
         res.json(responseData)
     })
 })
+
+
+/*
+ * 退出
+ * */
+router.get('/user/logout', function (req, res) {
+    //退出，就把cookies信息给清除掉了
+    req.cookies.set('userInfo', null)
+    res.json(responseData)
+})
+
 
 module.exports = router

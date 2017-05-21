@@ -89,6 +89,9 @@ article{
     padding-right: 15px;
     border-bottom: 2px solid #ff9800;
 }
+.info p a{
+    color:#333333;
+}
 .colwarning{
     color:#f00;
 }
@@ -144,6 +147,19 @@ article{
 .content button{
     position: absolute;
     bottom:0;
+}
+.commentPage ul{
+    padding:0 10px;
+}
+.commentPage li{
+    display: inline-block;
+    margin-right: 275px;
+}
+.commentPage li:last-of-type{
+    margin-right:0px;
+}
+.commentPage li a{
+    color: #333;
 }
 .readAll{
     color: #fff;
