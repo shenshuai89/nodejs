@@ -18,7 +18,7 @@
  ![](https://raw.githubusercontent.com/shenshuai89/nodejs/win7/blog/Thumbnails%20View/node1.jpg)
 
 > 博客的内容页的评论展示
- ![](https://raw.githubusercontent.com/shenshuai89/nodejs/win7/blog/Thumbnails%20View/node2.jpg)
+ ![](https://raw.githubusercontent.com/shenshuai89/nodejs/win7/blog/Thumbnails%20View/node2.png)
 
 > 博客的分类下文章的分页展示
- ![](https://raw.githubusercontent.com/shenshuai89/nodejs/win7/blog/Thumbnails%20View/node3.jpg)
+ ![](https://raw.githubusercontent.com/shenshuai89/nodejs/win7/blog/Thumbnails%20View/node3.png)
